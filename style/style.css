@@ -1,0 +1,350 @@
+* { margin: 0; padding: 0; }
+body { background:#ffffff; color: black; font-family: Arial, helvetica, sans-serif;}
+
+h1 { color: #111111; font-size: 2.1em; font-weight: bold; text-transform: uppercase; font-family: Roboto}
+h2 { color: #222; font-size: 1.5em; padding: 5% 0% 0% 5%; font-family: Roboto }
+h3 { color: #111111; font-size: 2.1em; font-weight: bold; text-transform: uppercase; font-family: Roboto}
+h5 { color: #111111; font-size: 4.1em; font-weight: bold; text-transform: uppercase; font-family: Roboto}
+
+p { color: #222; font-size: 1em; line-height: 1.4em; padding: 5%; text-align: justify;}
+
+a { color: #000; font-size: 1.2em; font-weight: bold; text-transform: uppercase; }
+a[href^='mailto:'] { color: #111; font-size: 1em; font-weight: normal; text-decoration: none; text-transform: none;}
+
+
+/*
+     Alle Einstellungen für den Wrapper
+   */
+#wrapper {
+	width: 100vw;
+	height: auto;
+
+	min-width: 1150px;
+
+	margin: auto;
+
+    display: grid;
+    grid-template-columns: 25% 25% 22.5% 22.5% 3%;
+    grid-auto-rows: minmax(30px, auto);
+    grid-template-areas:
+      "logo logo abst abst abst"
+      "back back bild1 text1 foot"
+      "back back text2 bild2 foot"
+	  "back back bild3 text3 foot"
+	  "back back text4 bild4 foot"
+	  "back back bild5 text5 foot"
+	 
+	}
+
+header {
+    grid-area: logo;
+	background-color: bisque;
+	padding-bottom: 15%;
+	left: 30%;
+
+	}
+.logo{
+	width: 30%;
+	height: auto;
+	padding-left: 80%;
+	}
+
+
+nav {
+	position: fixed;
+	}
+
+#background {
+    grid-area: back;
+	background-color: bisque;
+	padding-left:3%;
+	}
+
+	/*
+     Gemaelde Bilder
+   */
+.bild {
+	width: 40%;
+	min-width: 460px;
+	height: auto;
+	position: fixed;
+	}
+.bild1 {
+	width: 70%;
+	height: auto;
+	}
+
+#bild1 {
+    grid-area: bild1;
+	padding-left: 10%;
+	padding-top: 10%;
+	}
+
+.bild1:hover {
+	transform: scale(1.1,1.1);
+	
+	transition-duration: 0.5s;}
+
+#bild2 {
+    grid-area: bild2;
+	padding-right: 10%;
+	padding-top: 10%;
+	}
+
+#bild3 {
+    grid-area: bild3;
+	padding-left: 10%;
+	padding-top: 10%;
+	}
+
+#bild4 {
+    grid-area: bild4;
+	padding-left: 10%;
+	padding-top: 10%;
+	}
+
+#bild5{
+    grid-area: bild5;
+	padding-left: 10%;
+	padding-top: 10%;
+	}
+
+/*
+   Text
+   */
+
+#article {
+    grid-area: text1;
+	padding-right: 10%;
+	}
+
+article {
+    grid-area: text2;
+	padding-left: 10%;
+	}
+
+article{
+    grid-area: text3;
+	padding-right: 10%;
+	}
+
+article {
+    grid-area: text4;
+	padding-right: 10%;
+	}
+article{
+    grid-area: text5;
+	padding-leftt: 10%;
+	}
+
+#abst {
+    grid-area: abst;
+	}
+footer {
+    grid-area: foot;
+	margin-left: -30%;
+	margin-top: 100px;
+	}	
+
+
+
+	/*
+   * Hamburger Icon --> https://github.com
+   */
+
+a
+{
+  text-decoration: none;
+  color: #232323;
+  
+  transition: color 0.3s ease;
+}
+
+a:hover
+{
+  color: tomato;
+}
+
+#menuToggle
+{
+  display: block;
+  position: relative;
+  top: 20px;
+  left: 30px;
+  
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  
+  background: #000;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/* 
+ Verwandle alle Hamburgerscheiben
+ in ein Kreuzzeichen
+ */
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/*
+ *  den mittleren Bar verstecken verstecken.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * der Letzte sollte in die andere Richtung gehen
+ */
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * positionieren
+ */
+#menu
+{
+  position: absolute;
+  width: 300px;
+	top: -8px;
+  
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+ 
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+  display: none;
+}
+
+#menu li
+{
+  font-size: 22px;
+  padding-left: 115%;
+}
+
+#menuToggle input:checked ~ ul
+{
+	display: block;
+
+}
+
+/*
+ * About
+ */
+
+	
+.exo{ position:absolute;
+	 left:50%;
+	 top:30%;}
+
+#textaboutme{ position:absolute;
+		left:20%;
+		top:35%;
+		text-align:justify;}
+
+ 
+h4{ position:absolute;
+	left:60%;
+	 top:10%;
+	font-family: Roboto;
+	font-size: 4.1em;
+
+	}
+
+#link{position: absolute;
+	  left:47%;
+	  top:67%;}
+
+#link2{position: absolute;
+	  left:47%;
+	  top:70%;}
+
+
+
+
+/*
+ * Contact
+ */
+
+.backgroundcontact{ position:absolute;
+					right:0}
+
+
+  
+
+.exo{ position:absolute;
+	 left:10%;
+	 top:10%;}
+
+
+#contact{ position:absolute;
+		left:29%;
+		top:40%;
+		font-size: 2.4em;
+		font-weight: bold;}
+		
+
+ 
+h5 { position:absolute;
+	left:30%;
+	 top:32%;}
+
+
+
